@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/KayongoEmmanuel/StockFlow/issues"
   },
-  "homepage": "https://github.com/KayongoEmmanuel/StockFlow#readme"
+  "homepage": "https://github.com/KayongoEmmanuel/StockFlow#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
 }
