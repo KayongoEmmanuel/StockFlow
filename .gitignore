@@ -4,3 +4,4 @@ node_modules/
 .claude
 .windsurf
 .env
+prisma/generated
