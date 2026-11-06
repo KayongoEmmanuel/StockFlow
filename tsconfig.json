@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    /* Environment & Language */
+    "target": "es2022",
+    "module": "es2022",
+    "lib": ["es2022"],
+    "moduleResolution": "bundler",
+
+    /* Output */
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    /* Strictness & Safety */
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}
