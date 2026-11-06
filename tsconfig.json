@@ -8,7 +8,6 @@
 
     /* Output */
     "outDir": "./dist",
-    "rootDir": "./src",
 
     /* Strictness & Safety */
     "strict": true,
