@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import request from "supertest";
-import { jest } from "@jest/globals";
+import { jest, describe, it ,afterEach,expect } from "@jest/globals";
 
 jest.unstable_mockModule('../src/prismaconfig.js', () => ({
     default: {
