@@ -13,7 +13,8 @@
     /* Strictness & Safety */
     "strict": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["jest","node"]
   },
   "include": ["src/**/*"]
 }
