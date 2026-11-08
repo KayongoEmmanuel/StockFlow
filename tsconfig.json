@@ -11,9 +11,10 @@
     "outDir": "./dist",
     "rootDir": "./src",
     /* Strictness & Safety */
-    "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "types": ["jest","node"]
   },
   "include": ["src/**/*"]
