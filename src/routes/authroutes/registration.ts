@@ -1,6 +1,6 @@
 
 import express, { Request, Response } from 'express';
-import prisma from '../../prismaconfig.js';
+import prisma from '../../prismaconfig';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 

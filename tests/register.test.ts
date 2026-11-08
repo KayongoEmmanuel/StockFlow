@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import request from "supertest";
 import { jest, describe, it ,afterEach,expect, beforeAll,beforeEach } from "@jest/globals";
 
-jest.unstable_mockModule('../src/prismaconfig.js', () => ({
+jest.unstable_mockModule('../src/prismaconfig', () => ({
     default: {
         user: {
             create: jest.fn(),
@@ -11,8 +11,8 @@ jest.unstable_mockModule('../src/prismaconfig.js', () => ({
     },
 }));
 
-const { default: prisma } = await import('../src/prismaconfig.js');
-const { default: app } = await import('../src/app.js');
+const { default: prisma } = await import('../src/prismaconfig');
+const { default: app } = await import('../src/app');
 
 describe('POST /register', () => {
     beforeEach(() => {

@@ -1,7 +1,7 @@
 // src/app.ts
 
 import express from 'express';
-import router1 from './routes/authroutes/registration.js';
+import router1 from './routes/authroutes/registration';
 
 const app = express();
 
