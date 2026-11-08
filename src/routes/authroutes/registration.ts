@@ -35,7 +35,7 @@ type TokenPayload = {
 
 const router1 = express.Router();
 
-router1.post('/signup', async (req: Request<SignupBody>, res: Response<AuthResponse>) => {
+router1.post('/register', async (req: Request<SignupBody>, res: Response<AuthResponse>) => {
         try {
             const { name, email, password } = req.body;
 
@@ -80,7 +80,12 @@ router1.post('/signup', async (req: Request<SignupBody>, res: Response<AuthRespo
                     name: newUser.name,
                     email: newUser.email,
                     role: newUser.role
-                }
+                },
+                token: jwt.sign(
+                    { userId: newUser.id },
+                    process.env.JWT_SECRET || 'secret',
+                    { expiresIn: '1d' }
+                )
             });
 
         } catch (error: unknown) {
