@@ -7,6 +7,7 @@ jest.unstable_mockModule('../src/prismaconfig', () => ({
     default: {
         user: {
             create: jest.fn(),
+            findUnique: jest.fn()
         },
     },
 }));
@@ -40,8 +41,8 @@ describe('POST /register', () => {
        const response = await request(app)
           .post("/auth/register")
           .send(mockUser);  
-      // ASSERT: Verify the outcomes
-      expect(response.status).toBe(201);
-      expect(response.body).toHaveProperty("token");  
+      // ASSERT: Verify the outcomes    
+        expect(response.status).toBe(201);
+        expect(response.body).toHaveProperty('token'); 
     });
 });    
