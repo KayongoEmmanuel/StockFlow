@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import request from "supertest";
-import { jest, describe, it ,afterEach,expect } from "@jest/globals";
+import { jest, describe, it ,afterEach,expect, beforeAll,beforeEach } from "@jest/globals";
 
 jest.unstable_mockModule('../src/prismaconfig.js', () => ({
     default: {
@@ -15,6 +15,9 @@ const { default: prisma } = await import('../src/prismaconfig.js');
 const { default: app } = await import('../src/app.js');
 
 describe('POST /register', () => {
+    beforeEach(() => {
+        const token: string = jwt.sign({ userId: 1 }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' }) ;
+    });
     afterEach(() => {
         jest.clearAllMocks();
     });
