@@ -1,5 +1,5 @@
 // src/app.ts
-
+import productsRouter from './routes/applicationroutes/products';
 import express from 'express';
 import router1 from './routes/authroutes/registration';
 
@@ -8,6 +8,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use('/auth',router1);
+app.use('/products',productsRouter);
 
 // Routes
 app.get('/', (req, res) => {
