@@ -38,7 +38,7 @@ model Product {
   price       Decimal  @db.Decimal(10, 2)
   quantity    Int      @default(0)
 
-  userId      String
+  userId      Int
   user        User     @relation(fields: [userId], references: [id])
 
   createdAt   DateTime @default(now())
