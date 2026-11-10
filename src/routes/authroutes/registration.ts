@@ -33,9 +33,9 @@ type TokenPayload = {
     userId: number;
 };
 
-const router1 = express.Router();
+const authrouter = express.Router();
 
-router1.post('/register', async (req: Request<SignupBody>, res: Response<AuthResponse>) => {
+authrouter.post('/register', async (req: Request<SignupBody>, res: Response<AuthResponse>) => {
         try {
             const { name, email, password } = req.body;
 
@@ -98,7 +98,7 @@ router1.post('/register', async (req: Request<SignupBody>, res: Response<AuthRes
     }
 );
 
-router1.post('/login', async (req: Request<LoginBody>,res: Response<AuthResponse>) => {
+authrouter.post('/login', async (req: Request<LoginBody>,res: Response<AuthResponse>) => {
         try {
             const { email, password } = req.body;
 
@@ -175,7 +175,7 @@ router1.post('/login', async (req: Request<LoginBody>,res: Response<AuthResponse
     }
 );
 
-export default router1;
+export default authrouter;
 
 
 
