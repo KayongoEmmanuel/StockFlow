@@ -24,9 +24,10 @@ model User {
   email     String   @unique
   password  String
   role      UserRole @default(STAFF)
+  product   Product[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  product   Product[]
 }
 
 model Product {
@@ -38,7 +39,7 @@ model Product {
   quantity    Int      @default(0)
 
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id])
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
