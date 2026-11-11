@@ -8,35 +8,31 @@ interface AuthenticatedRequest extends express.Request {
 
 const productsRouter = express.Router();
 
-productsRouter.get(
-    "/",
-    authMiddleware,
-    async (req: AuthenticatedRequest, res: Response) => {
-        try {
-            // 1. Get the authenticated user's ID
-            const userId = req.userId;
+productsRouter.get("/",authMiddleware,async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    // 1. Get the authenticated user's ID
+    const userId = req.userId;
 
-            if (!userId) {
-                return res.status(401).json({
-                    message: "User not authenticated"
-                });
-            }
+    if (!userId) {
+      return res.status(401).json({
+        message: "User not authenticated"
+      });
+    }
 
-            // 2. Read pagination parameters
-            const pageParam = req.query.page ?? "1";
-            const limitParam = req.query.limit ?? "10";
+    // 2. Read pagination parameters
+    const pageParam = req.query.page ?? "1";
+    const limitParam = req.query.limit ?? "10";
 
-            // 3. Validate the parameters
-            if (
-                typeof pageParam !== "string" ||
-                typeof limitParam !== "string" ||
-                !/^[1-9]\d*$/.test(pageParam) ||
-                !/^[1-9]\d*$/.test(limitParam)
-            ) {
-                return res.status(400).json({
-                    message: "Page and limit must be positive integers"
-                });
-            }
+    // 3. Validate the parameters
+    if (
+      typeof pageParam !== "string" ||
+      typeof limitParam !== "string" ||
+      !/^[1-9]\d*$/.test(pageParam) ||
+      !/^[1-9]\d*$/.test(limitParam)) {
+        return res.status(400).json({
+          message: "Page and limit must be positive integers"
+        });
+      }
 
             const page = Number(pageParam);
             const limit = Number(limitParam);
