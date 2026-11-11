@@ -13,7 +13,8 @@ jest.unstable_mockModule('../src/prismaconfig', () => ({
         product: {
             findMany: jest.fn(),
             count: jest.fn()
-        }
+        },
+        $transaction: jest.fn(),
     },
 }));
 
