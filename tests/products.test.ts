@@ -69,7 +69,10 @@ describe('GET /products', () => {
             mockProducts as any
         );
 
-        jest.mocked(prisma.product.count).mockResolvedValue(5);
+        jest.mocked(prisma.$transaction).mockResolvedValue([
+            mockProducts,
+            5
+        ] as any);
 
         // ACT: Request page 2 with 2 products per page
         const response = await request(app)
@@ -82,10 +85,12 @@ describe('GET /products', () => {
         expect(response.body.data).toHaveLength(2);
 
         expect(response.body.pagination).toEqual({
-            page: 2,
-            limit: 2,
-            total: 5,
-            totalPages: 3
+        currentPage: 2,
+        limit: 2,
+        hasNextPage: true,
+        hasPreviousPage: true,
+        totalPages: 3,
+        totalProducts: 5
         });
 
         // Verify that Prisma filtered products by authenticated user
