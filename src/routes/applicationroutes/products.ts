@@ -23,7 +23,7 @@ productsRouter.get("/",authMiddleware,async (req: AuthenticatedRequest, res: Res
     const pageParam = req.query.page ?? "1";
     const limitParam = req.query.limit ?? "10";
 
-    // 3. Validate the parameters
+    // 3. Validate the parameters and ensure they are positive integers
     if (
       typeof pageParam !== "string" ||
       typeof limitParam !== "string" ||
